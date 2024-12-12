@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+using UnityEngine.Profiling;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -160,7 +161,9 @@ namespace StarterAssets
 
             JumpAndGravity();
             GroundedCheck();
+            Profiler.BeginSample("Move");
             Move();
+            Profiler.EndSample();
         }
 
         private void LateUpdate()
@@ -283,7 +286,7 @@ namespace StarterAssets
 
         private void JumpAndGravity()
         {
-            if (Grounded)
+            if (Grounded && swimming == false)
             {
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
@@ -296,7 +299,7 @@ namespace StarterAssets
                 }
 
                 // stop our velocity dropping infinitely when grounded
-                if (_verticalVelocity < 0.0f && swimming == false)
+                if (_verticalVelocity < 0.0f)
                 {
                     _verticalVelocity = -2f;
                 }
@@ -344,7 +347,7 @@ namespace StarterAssets
             }
 
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-            if (_verticalVelocity < _terminalVelocity && swimming == false)
+            if (_verticalVelocity < _terminalVelocity)
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
@@ -363,6 +366,22 @@ namespace StarterAssets
             {
                 _animator.SetBool("Swimming", true);
                 swimming = true;
+                Gravity = 0.5f;
+            }
+            if (other.CompareTag("Boat"))
+            {
+                other.transform.parent = transform;
+                //other.GetComponent<FitToWater>().enabled = false;
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.CompareTag("Boat"))
+            {
+                _animator.SetBool("Swimming", false);
+                swimming = false;
+                Gravity = -15;
             }
         }
 
@@ -372,6 +391,12 @@ namespace StarterAssets
             {
                 _animator.SetBool("Swimming", false);
                 swimming = false;
+                Gravity = -15;
+            }
+            if (other.CompareTag("Boat"))
+            {
+                other.transform.parent = null;
+                //other.GetComponent<FitToWaterSurface>().enabled = false;
             }
         }
 

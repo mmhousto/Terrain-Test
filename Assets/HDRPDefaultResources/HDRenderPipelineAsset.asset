@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RenderPipelineSettings:
     supportShadowMask: 1
-    supportSSR: 0
-    supportSSRTransparent: 0
+    supportSSR: 1
+    supportSSRTransparent: 1
     supportSSAO: 1
-    supportSSGI: 0
+    supportSSGI: 1
     supportSubsurfaceScattering: 1
     sssSampleBudget:
       m_Values: 140000002800000050000000
@@ -29,14 +29,14 @@ MonoBehaviour:
         m_Id: With3Levels
     supportVolumetrics: 1
     supportVolumetricClouds: 1
-    supportLightLayers: 0
+    supportLightLayers: 1
     renderingLayerMaskBuffer: 0
     supportWater: 1
     waterSimulationResolution: 128
     supportWaterExclusion: 1
     supportWaterDecals: 1
     waterDecalAtlasSize: 1024
-    maximumWaterDecalCount: 48
+    maximumWaterDecalCount: 128
     waterScriptInteractionsMode: 0
     waterFullCPUSimulation: 0
     supportComputeThickness: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
       m_SchemaId:
         m_Id: With3Levels
     supportDecals: 1
-    supportDecalLayers: 0
+    supportDecalLayers: 1
     supportSurfaceGradient: 1
     decalNormalBufferHP: 0
     supportHighQualityLineRendering: 0
@@ -82,8 +82,8 @@ MonoBehaviour:
     supportProbeVolumeScenarios: 0
     supportProbeVolumeScenarioBlending: 1
     probeVolumeBlendingMemoryBudget: 128
-    supportRayTracing: 0
-    supportVFXRayTracing: 0
+    supportRayTracing: 1
+    supportVFXRayTracing: 1
     supportedRayTracingMode: 3
     lightLoopSettings:
       cookieAtlasSize: 2048
@@ -146,7 +146,7 @@ MonoBehaviour:
       maxDirectionalShadowMapResolution: 2048
       maxPunctualShadowMapResolution: 2048
       maxAreaShadowMapResolution: 2048
-      supportScreenSpaceShadows: 0
+      supportScreenSpaceShadows: 1
       maxScreenSpaceShadowSlots: 4
       screenSpaceShadowBufferFormat: 48
     decalSettings:
@@ -338,7 +338,7 @@ MonoBehaviour:
   availableMaterialQualityLevels: -1
   m_DefaultMaterialQualityLevel: 4
   diffusionProfileSettings: {fileID: 0}
-  m_VolumeProfile: {fileID: 0}
+  m_VolumeProfile: {fileID: 11400000, guid: fe05288aca2f31443877a786e771100f, type: 2}
   virtualTexturingSettings:
     streamingCpuCacheSizeInMegaBytes: 256
     streamingMipPreloadTexturesPerFrame: 0
