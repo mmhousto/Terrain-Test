@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 
-namespace StarterAssets{
+namespace StarterAssets
+{
 
     [ExecuteInEditMode]
     public class FitToWater : MonoBehaviour

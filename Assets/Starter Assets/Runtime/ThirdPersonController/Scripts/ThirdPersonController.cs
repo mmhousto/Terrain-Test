@@ -161,7 +161,7 @@ namespace StarterAssets
 
             JumpAndGravity();
             GroundedCheck();
-            Profiler.BeginSample("Move");
+            Profiler.BeginSample("gfsgsdfgdfgdf");
             Move();
             Profiler.EndSample();
         }
@@ -370,7 +370,11 @@ namespace StarterAssets
             }
             if (other.CompareTag("Boat"))
             {
+                _animator.SetBool("Boating", true);
                 other.transform.parent = transform;
+                other.transform.localPosition = Vector3.zero;
+                other.transform.localRotation = Quaternion.Euler(0.0f, 90f, 0.0f);
+                //other.transform.rotation = transform.rotation;
                 //other.GetComponent<FitToWater>().enabled = false;
             }
         }
@@ -381,7 +385,10 @@ namespace StarterAssets
             {
                 _animator.SetBool("Swimming", false);
                 swimming = false;
-                Gravity = -15;
+                _verticalVelocity = 0;
+                Gravity = 0;
+                other.transform.localPosition = Vector3.zero;
+                other.transform.localRotation = Quaternion.Euler(0.0f, 90f, 0.0f);
             }
         }
 
@@ -395,7 +402,9 @@ namespace StarterAssets
             }
             if (other.CompareTag("Boat"))
             {
+                _animator.SetBool("Boating", false);
                 other.transform.parent = null;
+                Gravity = -15;
                 //other.GetComponent<FitToWaterSurface>().enabled = false;
             }
         }
