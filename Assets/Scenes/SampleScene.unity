@@ -1326,7 +1326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3867988955935571005, guid: aa70f82ba6bc4e64f8b9d77004fde085, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.75388
+      value: 32.8164
       objectReference: {fileID: 0}
     - target: {fileID: 3867988955935571005, guid: aa70f82ba6bc4e64f8b9d77004fde085, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2366,7 +2366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4385861650331370968, guid: 82b989f52c7d1c544a7345f783d9638c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.925156
+      value: 34.12937
       objectReference: {fileID: 0}
     - target: {fileID: 4385861650331370968, guid: 82b989f52c7d1c544a7345f783d9638c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2858,7 +2858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleMode: 1
   regionSize: {x: 70, y: 25}
-  amplitude: 30
+  amplitude: 23.3
   surfaceFoamDimmer: 0
   deepFoamDimmer: 1
   resolution: {x: 256, y: 256}
